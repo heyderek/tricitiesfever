@@ -1319,10 +1319,11 @@ ul#schedule {
 	clear: both;
 }
 ul#schedule li {
-	float: left;
+	float: right;
 	display: inline;
 	text-align: center;
 	border: 1px solid #ACA072;
+	background: #fff;
 	margin: 0 1px 0 0;
 	width: 65px;
 	height: 55px;
