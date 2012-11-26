@@ -297,7 +297,8 @@ function twentyten_setup() {
 	) );
 
 	// This theme allows users to set a custom background
-	add_custom_background();
+	
+	add_theme_support('custom-background');
 
 	// Your changeable header business starts here
 	define( 'HEADER_TEXTCOLOR', '' );
@@ -322,10 +323,8 @@ function twentyten_setup() {
 
 	// Don't support text inside the header image.
 	define( 'NO_HEADER_TEXT', true );
-
-	// Add a way for the custom header to be styled in the admin panel that controls
-	// custom headers. See twentyten_admin_header_style(), below.
-	add_custom_image_header( '', 'twentyten_admin_header_style' );
+	
+	add_theme_support('custom-header');
 
 	// ... and thus ends the changeable header business.
 

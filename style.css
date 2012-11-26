@@ -1,21 +1,941 @@
-@import url(css/reset.css);
-@import url(css/formalize.css);
-@import url(css/typography.css);
-@import url(css/layout.css);
-@import url(css/paginate.css);
-@import url(css/flexslider.css);
-@import url(css/widgets.css);
-@import url(css/mobile.css);
-@import url(css/print.css);
-/*Theme Name: 2012 Tri-Cities Fever
+/*Theme Name: 2013 Tri-Cities Fever
  *Theme URI: http://tricitiesfever.com
  *Description: The theme for the Tri Cities Fever, professional indoor football.
- *Version: 1.4
- *Author: Derek Nelson / Jon Olson
+ *Version: 2.0
+ *Author: Derek Nelson for Versatile Design Studios
  *Author URI:
  *Tags: Versatile Design Studios. */
 /*Don't need a style?  Leave it out. */
-/*@import "css/comments.css"; */
+/* RESET */
+/* ----------------------------------------- */
+/* Global reset */
+/* http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Global reset-RESET */
+/* The below restores some sensible defaults */
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: italic; }
+
+a img {
+  border: none; }
+
+/* Gets rid of IE's blue borders */
+/* tables still need 'cellspacing="0"' in the markup */
+/* `Widths
+ *---------------------------------------------------------------------------------------------------- */
+.input_tiny {
+  width: 50px; }
+
+.input_small {
+  width: 100px; }
+
+.input_medium {
+  width: 150px; }
+
+.input_large {
+  width: 200px; }
+
+.input_xlarge {
+  width: 250px; }
+
+.input_xxlarge {
+  width: 300px; }
+
+.input_full {
+  width: 100%; }
+
+/*Added via JS to <textarea> and class="input_full".
+ *Applies only to IE7. Other browsers don't need it. */
+.input_full_wrap {
+  display: block;
+  padding-right: 8px; }
+
+/* `UI Consistency
+ *---------------------------------------------------------------------------------------------------- */
+::-moz-focus-inner {
+  border: 0; }
+
+input {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  margin: 0;
+  vertical-align: middle; }
+  input[type="search"]::-webkit-search-decoration {
+    display: none; }
+
+button, select, textarea {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+  margin: 0;
+  vertical-align: middle; }
+
+button {
+  -webkit-appearance: none;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  border-radius: 11px;
+  background: url(../images/button.gif) #b1a679 repeat-x;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f6eac9), color-stop(1, #b1a679));
+  background: -moz-linear-gradient(top center, #f6eac9 0%, #b1a679 100%);
+  border: 1px solid;
+  border-color: #b48b10;
+  cursor: pointer;
+  color: #555555;
+  font: bold 12px/1.2 Arial, sans-serif;
+  outline: 0;
+  overflow: visible;
+  padding: 3px 10px 4px;
+  text-shadow: white 0 1px 1px;
+  width: auto;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 0px; }
+
+input[type="reset"], input[type="submit"], input[type="button"] {
+  -webkit-appearance: none;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  border-radius: 11px;
+  background: url(../images/button.gif) #b1a679 repeat-x;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f6eac9), color-stop(1, #b1a679));
+  background: -moz-linear-gradient(top center, #f6eac9 0%, #b1a679 100%);
+  border: 1px solid;
+  border-color: #b48b10;
+  cursor: pointer;
+  color: #555555;
+  font: bold 12px/1.2 Arial, sans-serif;
+  outline: 0;
+  overflow: visible;
+  padding: 3px 10px 4px;
+  text-shadow: white 0 1px 1px;
+  width: auto;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 0px; }
+
+button {
+  /* IE7 */
+  *padding-top: 1px;
+  *padding-bottom: 1px; }
+  button[disabled] {
+    color: #888888; }
+
+input[type="reset"][disabled], input[type="submit"][disabled], input[type="button"][disabled] {
+  color: #888888; }
+
+textarea, select {
+  -webkit-appearance: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: black;
+  outline: 0;
+  padding: 2px 3px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  height: 1.8em;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 1px;
+  *height: auto; }
+
+input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"] {
+  -webkit-appearance: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: black;
+  outline: 0;
+  padding: 2px 3px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  height: 1.8em;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 1px;
+  *height: auto; }
+input.placeholder_text {
+  color: #888888; }
+
+/*Separate rule for Firefox.
+ *Cannot stack with WebKit's. */
+textarea.placeholder_text, ::-webkit-input-placeholder {
+  color: #888888; }
+
+textarea[disabled], select[disabled] {
+  background-color: #eeeeee;
+  color: #888888; }
+
+input[type="date"][disabled], input[type="datetime"][disabled], input[type="datetime-local"][disabled], input[type="email"][disabled], input[type="month"][disabled], input[type="number"][disabled], input[type="password"][disabled], input[type="search"][disabled], input[type="tel"][disabled], input[type="text"][disabled], input[type="time"][disabled], input[type="url"][disabled], input[type="week"][disabled] {
+  background-color: #eeeeee;
+  color: #888888; }
+
+button:focus, button:active {
+  -moz-box-shadow: #0066ff 0 0 7px;
+  -webkit-box-shadow: #0066ff 0 0 7px;
+  box-shadow: #0066ff 0 0 7px;
+  /* for Opera */
+  z-index: 1; }
+
+input:focus, input:active {
+  -moz-box-shadow: #0066ff 0 0 7px;
+  -webkit-box-shadow: #0066ff 0 0 7px;
+  box-shadow: #0066ff 0 0 7px;
+  /* for Opera */
+  z-index: 1; }
+
+select:focus, select:active {
+  -moz-box-shadow: #0066ff 0 0 7px;
+  -webkit-box-shadow: #0066ff 0 0 7px;
+  box-shadow: #0066ff 0 0 7px;
+  /* for Opera */
+  z-index: 1; }
+
+textarea:focus, textarea:active {
+  -moz-box-shadow: #0066ff 0 0 7px;
+  -webkit-box-shadow: #0066ff 0 0 7px;
+  box-shadow: #0066ff 0 0 7px;
+  /* for Opera */
+  z-index: 1; }
+
+input[type="file"]:focus, input[type="file"]:active {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+input[type="radio"]:focus, input[type="radio"]:active {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+input[type="checkbox"]:focus, input[type="checkbox"]:active {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+.is_webkit select {
+  /* Tweaks for Safari + Chrome. */
+  background-image: url(../images/select_arrow.gif);
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 20px; }
+
+textarea {
+  height: auto; }
+
+select[multiple] {
+  height: auto;
+  background-image: none;
+  padding: 0; }
+
+.is_webkit select[multiple] {
+  background-image: none;
+  padding: 0; }
+
+textarea {
+  min-height: 40px;
+  overflow: auto;
+  resize: vertical;
+  width: 100%; }
+
+optgroup {
+  color: black;
+  font-style: normal;
+  font-weight: normal; }
+
+/* `IE6
+ *---------------------------------------------------------------------------------------------------- */
+/*  Everything below this line is for IE6.
+ *  Delete it if you don't support it! :)
+ *
+ *  Classes are added dynamically via JS,
+ *  because IE6 doesn't support attribute
+ *  selectors: .ie6_button, .ie6_input, etc.
+ *
+ *  Note: These style rules are somewhat
+ *  duplicated because IE6 bombs out when
+ *  it sees attribute selectors. Example:
+ *
+ *  .ie6_button {
+ *    This works in IE6.
+ *  }
+ *
+ *  .ie6_button,
+ *  input[type=submit] {
+ *    This doesn't work.
+ *  } */
+.ie6_button {
+  background: #dddddd url(../images/button.png) repeat-x;
+  border: 1px solid;
+  border-color: #dddddd #bbbbbb #999999;
+  cursor: pointer;
+  color: #333333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  padding: 2px 10px 0px;
+  overflow: visible;
+  width: auto; }
+
+* button {
+  background: #dddddd url(../images/button.png) repeat-x;
+  border: 1px solid;
+  border-color: #dddddd #bbbbbb #999999;
+  cursor: pointer;
+  color: #333333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  padding: 2px 10px 0px;
+  overflow: visible;
+  width: auto;
+  padding-top: 1px;
+  padding-bottom: 1px; }
+
+.ie6_input {
+  background: white;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: black;
+  padding: 2px 3px 1px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  vertical-align: top; }
+
+* html textarea {
+  background: white;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: black;
+  padding: 2px 3px 1px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  vertical-align: top; }
+* html select {
+  background: white;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: black;
+  padding: 2px 3px 1px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  vertical-align: top;
+  margin-top: 1px; }
+
+.placeholder_text, .ie6_input_disabled, .ie6_button_disabled {
+  color: #888888; }
+
+.ie6_input_disabled {
+  background: #eeeeee; }
+
+/* TYPOGRAPHY */
+/* ----------------------------------------- */
+/* =Fonts
+ *-------------------------------------------------------------- */
+body, input, textarea, .page-title span, .pingback a.url {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6, #access, .widget-title {
+  font-family: Futura, "Century Gothic", "Apple Gothic", Helvetica, Arial, sans-serif; }
+
+/* This helps to identify headings at the initial build stage, so I thought it'd be useful to have it */
+h3#comments-title, h3#reply-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+#cancel-comment-reply-link, .form-allowed-tags, #site-info, #site-title, #wp-calendar, .comment-meta {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+.comment-body tr th, .comment-body thead th {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+.entry-content label, .entry-content tr th, .entry-content thead th {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+.entry-meta, .entry-title, .entry-utility, #respond label, .navigation, .page-title, .pingback p, .reply, .article-title a, .wp-caption-text {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+#secondary-wrapper h1, #secondary-wrapper h2, #secondary-wrapper h3, #secondary-wrapper h4, #secondary-wrapper h5, #secondary-wrapper h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+.article-list h1, .article-list h2, .article-list h3, .article-list h4, .article-list h5, .article-list h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif; }
+
+input[type=submit] {
+  font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+
+pre {
+  font-family: "Courier 10 Pitch", Courier, monospace; }
+
+code {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; }
+
+h1.feed, h3.feed {
+  font-size: 32px;
+  line-height: 50px;
+  padding: 1px 10px 0; }
+
+#fp-container h3, #fp-primary h4, #fp-secondary h4, #fp-primary h3, #fp-secondary h3 {
+  font-family: Futura, "Century Gothic", "Apple Gothic", Helvetica, Arial, sans-serif; }
+
+#secondary-wrapper h1.feed, #secondary-wrapper h3.feed {
+  font-family: Futura, "Century Gothic", "Apple Gothic", Helvetica, Arial, sans-serif; }
+
+#primary .widget-title, #secondary .widget-title {
+  font-family: Futura, "Century Gothic", "Apple Gothic", Helvetica, Arial, sans-serif; }
+
+.alert {
+  background: red;
+  color: white; }
+
+/* 'alert' has a basic style, since it's useful to have it standing out for testing purposes.
+ *
+ *
+ *
+ */* Font stack options
+ *
+ *	The following represents a list of font stacks, as recommended by Nathan Ford in
+ *	http://unitinteractive.com/blog/2008/06/26/better-css-font-stacks/
+ *
+ *	I've added inverted commas around the relevant family names to ensure compatibility.
+ *	p = balanced for paragraphs or body copy
+ *	t = balanced for headlines or titles
+ *
+ *	- - - -
+ *
+ *Arial, "Helvetica Neue", Helvetica, sans-serif - p, t
+ *
+ *Baskerville, "Times New Roman", Times, serif - p
+ *Baskerville, "Times, Times New Roman", serif - t
+ *
+ *Cambria, Georgia, Times, "Times New Roman", serif - p, t
+ *"Century Gothic", "Apple Gothic", sans-serif - p, t
+ *
+ *Consolas, "Lucida Console", Monaco, monospace - p, t
+ *
+ *"Copperplate Light", "Copperplate Gothic Light", serif - p, t
+ *
+ *"Courier New", Courier, monospace - p, t
+ *
+ *"Franklin Gothic Medium", "Arial Narrow Bold", Arial, sans-serif - p, t
+ *
+ *Futura, "Century Gothic", "Apple Gothic", sans-serif - p, t
+ *
+ *Garamond, "Hoefler Text", "Times New Roman", Times, serif - p
+ *Garamond, "Hoefler Text", Palatino, "Palatino Linotype", serif - t
+ *
+ *Geneva, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif - p
+ *Geneva, Verdana, "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif - t
+ *
+ *Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif - p
+ *Georgia, Times, "Times New Roman", serif - t
+ *
+ *GillSans, Calibri, Trebuchet, sans-serif - p
+ *GillSans, Trebuchet, Calibri, sans-serif - t
+ *
+ *"Helvetica Neue", Arial, Helvetica, sans-serif - p
+ *Helvetica, "Helvetica Neue", Arial, sans-serif - t
+ *
+ *Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif - p, t
+ *
+ *"Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif - p, t
+ *
+ *Palatino, "Palatino Linotype", Georgia, Times, "Times New Roman", serif - p
+ *Palatino, "Palatino Linotype", "Hoefler Text", Times, "Times New Roman", serif - t
+ *
+ *Tahoma, Geneva, Verdana - p
+ *Tahoma, Verdana, Geneva - t
+ *
+ *Times, "Times New Roman", Georgia, serif - p, t
+ *
+ *Trebuchet, "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif - p
+ *Trebuchet, Tahoma, Arial, sans-serif - t
+ *
+ *Verdana, Geneva, Tahoma, sans-serif - p
+ *Verdana, Tahoma, Geneva, sans-serif - t */
+/* LAYOUT */
+/* ----------------------------------------- */
+/*LAYOUT: Two columns
+ *DESCRIPTION: Two-column fixed layout with one sidebar right of content */
+#container {
+  float: left;
+  margin: 5px -260px 0 0;
+  /*width: 100%; */ }
+
+#content {
+  margin: 0 300px 0 0; }
+
+#primary {
+  float: right;
+  overflow: hidden;
+  width: 260px;
+  position: relative;
+  z-index: 9; }
+
+#secondary {
+  float: right;
+  overflow: hidden;
+  width: 260px;
+  position: relative;
+  z-index: 9;
+  clear: right; }
+
+#footer {
+  clear: both;
+  width: 100%; }
+
+/*LAYOUT: One column, no sidebar
+ *DESCRIPTION: One centered column with no sidebar */
+.one-column #content {
+  margin: 0 auto;
+  width: 640px; }
+
+/*LAYOUT: Full width, no sidebar
+ *DESCRIPTION: Full width content with no sidebar; used for attachment pages */
+.single-attachment #content {
+  margin: 0 auto;
+  width: 900px; }
+
+/* These rather presentational classes are generated by WordPress, so it's useful to have some styles for them. Edit as you see fit. More info: http://codex.wordpress.org/CSS */
+.aligncenter {
+  display: block;
+  margin: 0 auto; }
+
+.alignleft {
+  float: left; }
+
+.alignright {
+  float: right; }
+
+.wp-caption {
+  border: 1px solid #666666;
+  text-align: center;
+  background: #cccccc;
+  padding: 10px;
+  margin: 10px; }
+
+/* You might find the following useful */
+/* div, ul, li { position:relative } This will save you having to declare each div / ul / li's position as 'relative' and allows you to absolutely position elements inside them */
+.notxt {
+  text-indent: -9999em;
+  text-align: left;
+  display: block; }
+
+.scrnrd {
+  position: absolute;
+  left: -9999em; }
+
+br.clear {
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: -1px 0 0 0; }
+
+/* Use this br class to clear your floated columns */
+li#theme-switcher {
+  background: white;
+  border: 10px solid red;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  right: 0; }
+
+/* Use this if you have the Theme Switcher Reloaded plugin (http://themebot.com/webmaster-tools/1-wordpress-theme-switcher-reloaded) installed and want to make it nice and obvious */
+/* emm_paginate - WordPress Pagination Function
+ * Version: 1.0
+ *
+ * Copyright (c) 2009 Eric Martin http://www.ericmmartin.com/
+ * Link: http://www.ericmmartin.com/pagination-function-for-wordpress
+ */
+.emm-paginate {
+  float: right;
+  display: inline;
+  margin: 0 0 15px; }
+  .emm-paginate a {
+    background: #dddddd;
+    border: 1px solid #cccccc;
+    color: #666666;
+    margin-right: 4px;
+    padding: 3px 6px;
+    text-align: center;
+    text-decoration: none; }
+    .emm-paginate a:hover, .emm-paginate a:active {
+      background: #cccccc;
+      color: #888888; }
+  .emm-paginate .emm-title {
+    color: #555555;
+    margin-right: 4px; }
+  .emm-paginate .emm-gap {
+    color: #999999;
+    margin-right: 4px; }
+  .emm-paginate .emm-current {
+    color: white;
+    background: #5f87ae;
+    border: 1px solid #89adcf;
+    margin-right: 4px;
+    padding: 3px 6px; }
+
+/* jQuery FlexSlider v1.4
+ * http://flex.madebymufffin.com
+ *
+ * Copyright 2011, Tyler Smith
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php */
+/* FlexSlider Necessary Styles
+ ********************************* */
+.flexslider {
+  margin: 0;
+  padding: 0; }
+  .flexslider .slides li {
+    display: none;
+    list-style: none; }
+  .flexslider .slides img {
+    max-width: 100%;
+    display: block; }
+
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+ul.flexslider-container {
+  list-style: none;
+  margin: 0; }
+ul.slides {
+  margin: 0; }
+
+/* FlexSlider Default ../images
+ ********************************* */
+.flexslider {
+  background: white;
+  position: relative; }
+  .flexslider .slides li {
+    position: relative; }
+
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flexslider-container {
+  position: relative;
+  float: left;
+  width: 960px; }
+
+/* Caption style */
+.caption {
+  width: 50%;
+  padding: 2%;
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  font-size: 15px;
+  line-height: 18px; }
+  .caption h3 {
+    color: white;
+    border-bottom: 5px solid #aca072;
+    padding: 0 0 10px;
+    margin: 0 0 10px;
+    line-height: 1.25em;
+    font-size: 24px; }
+
+/* Direction Nav */
+.flex-direction-nav {
+  list-style: none;
+  margin: 0; }
+  .flex-direction-nav li a {
+    width: 52px;
+    height: 52px;
+    margin: -13px 0 0;
+    display: block;
+    background: url(../images/bg_direction_nav.png) no-repeat 0 0;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    text-indent: -9999px; }
+    .flex-direction-nav li a.next {
+      background-position: -52px 0;
+      right: -21px;
+      display: none; }
+    .flex-direction-nav li a.prev {
+      background-position: 0 0;
+      left: -21px;
+      display: none; }
+
+/* set negative margin-top equal to half the height on the directional-nav for perfect vertical centering */
+/* Control Nav */
+.flex-control-nav {
+  right: 0;
+  position: absolute;
+  top: 10px;
+  margin-right: 10px;
+  list-style: none; }
+  .flex-control-nav li {
+    margin: 0 0 0 5px;
+    float: left; }
+    .flex-control-nav li:first-child {
+      margin: 0; }
+    .flex-control-nav li a {
+      width: 13px;
+      height: 13px;
+      display: block;
+      background: url(../images/bg_control_nav.png) no-repeat 0 0;
+      cursor: pointer;
+      text-indent: -9999px; }
+      .flex-control-nav li a:hover {
+        background-position: 0 -13px; }
+      .flex-control-nav li a.active {
+        background-position: 0 -26px;
+        cursor: default; }
+
+/* set negative margin-left equal to half the width on the control-nav for perfect centering */
+/* =Widget Areas
+ *-------------------------------------------------------------- */
+.widget-area ul {
+  list-style: none;
+  margin-left: 0; }
+  .widget-area ul ul {
+    list-style: square;
+    margin-left: 1.3em; }
+.widget-area select {
+  max-width: 100%; }
+
+.widget_search #s {
+  /* This keeps the search inputs in line */
+  width: 60%; }
+.widget_search label {
+  display: none; }
+
+.widget-container {
+  margin: 0 0 18px 0; }
+
+.widget-title {
+  color: #08324f;
+  text-transform: uppercase;
+  border-bottom: 5px solid #08324f;
+  font-size: 24px !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 10px !important; }
+
+.widget-area a:link, .widget-area a:visited {
+  text-decoration: none; }
+.widget-area a:active, .widget-area a:hover {
+  text-decoration: underline; }
+.widget-area .entry-meta {
+  font-size: 11px; }
+
+#wp_tag_cloud div {
+  line-height: 1.6em; }
+
+#wp-calendar {
+  width: 100%; }
+  #wp-calendar caption {
+    color: #222222;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 4px;
+    text-align: left; }
+  #wp-calendar thead {
+    font-size: 11px; }
+  #wp-calendar tbody {
+    color: #aaaaaa; }
+    #wp-calendar tbody td {
+      background: #f5f5f5;
+      border: 1px solid white;
+      padding: 3px 0 2px;
+      text-align: center; }
+    #wp-calendar tbody .pad {
+      background: none; }
+  #wp-calendar tfoot #next {
+    text-align: right; }
+
+.widget_rss a.rsswidget {
+  color: black; }
+  .widget_rss a.rsswidget:hover {
+    color: #ff4b33; }
+.widget_rss .widget-title img {
+  width: 11px;
+  height: 11px; }
+
+/* Main sidebars */
+#main ul {
+  margin-left: 0;
+  padding: 0; }
+  #main ul ul {
+    border: none;
+    margin-left: 1.3em;
+    padding: 0;
+    margin-bottom: 0; }
+
+#primary {
+  /*margin-top: 15px; */ }
+
+#secondary {
+  width: 240px; }
+  #secondary ul {
+    margin: 0;
+    list-style: none; }
+
+#linkcat-17 ul {
+  list-style-type: none; }
+  #linkcat-17 ul li {
+    margin-bottom: 10px; }
+    #linkcat-17 ul li img {
+      margin-top: 10px; }
+
+/* Footer widget areas */
+#footer-widget-area .widget-title {
+  font-size: 20px;
+  margin: 0 0 10px 0; }
+
+.sf-widget-title {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #dddddd;
+  font-weight: bold; }
+
+#sub-footer .widget-container {
+  margin: 0 0 0 15px; }
+
+/* =Pro Shop Widget Area
+ *-------------------------------------------------------------- */
+#ps-first {
+  background: white;
+  float: left;
+  overflow: hidden;
+  width: 960px;
+  margin-top: 10px; }
+  #ps-first .widget-container {
+    width: 480px;
+    float: left;
+    display: inline; }
+
+/* =Mobile Safari ( iPad, iPhone and iPod Touch )
+ *-------------------------------------------------------------- */
+pre {
+  -webkit-text-size-adjust: 140%; }
+
+code {
+  -webkit-text-size-adjust: 160%; }
+
+#access, .entry-meta, .entry-utility, .navigation, .widget-area {
+  -webkit-text-size-adjust: 120%; }
+
+#site-description {
+  -webkit-text-size-adjust: none; }
+
+/* =Print Style
+ *-------------------------------------------------------------- */
+@media print {
+  body {
+    background: none !important; }
+
+  #wrapper {
+    clear: both !important;
+    display: block !important;
+    float: none !important;
+    position: relative !important; }
+
+  #header {
+    border-bottom: 2pt solid black;
+    padding-bottom: 18pt; }
+
+  #colophon {
+    border-top: 2pt solid black; }
+
+  #site-title, #site-description {
+    float: none;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 0; }
+
+  #site-title {
+    font-size: 13pt; }
+
+  .entry-content {
+    font-size: 14pt;
+    line-height: 1.6em; }
+
+  .entry-title {
+    font-size: 21pt; }
+
+  #access, #branding img, #respond, .comment-edit-link, .edit-link, .navigation, .page-link, .widget-area {
+    display: none !important; }
+
+  #container, #header, #footer {
+    margin: 0;
+    width: 100%; }
+
+  #content, .one-column #content {
+    margin: 24pt 0 0;
+    width: 100%; }
+
+  .wp-caption p {
+    font-size: 11pt; }
+
+  #site-info, #site-generator {
+    float: none;
+    width: auto; }
+
+  #colophon {
+    width: auto; }
+
+  img#wpstats {
+    display: none; }
+
+  #site-generator a {
+    margin: 0;
+    padding: 0; }
+
+  #entry-author-info {
+    border: 1px solid #e7e7e7; }
+
+  #main {
+    display: inline; }
+
+  .home .sticky {
+    border: none; } }
 /* =Structure
  *-------------------------------------------------------------- */
 /* The main theme structure */
@@ -409,7 +1329,7 @@ div.menu li {
   color: black; }
 
 #single-column-wrapper h1.feed, #single-column-wrapper h3.feed {
-  background: url(images/heading-bg.jpg) left top no-repeat;
+  background: #0b2754;
   color: white;
   text-transform: uppercase;
   overflow: hidden;
@@ -418,7 +1338,7 @@ div.menu li {
   margin: 0; }
 
 #secondary-wrapper h1.feed, #secondary-wrapper h3.feed {
-  background: url(images/heading-bg.jpg) left top no-repeat;
+  background: #0b2754;
   color: white;
   text-transform: uppercase;
   overflow: hidden;
@@ -630,9 +1550,6 @@ table {
     font-weight: normal;
     padding: 0.5em 0.75em;
     text-decoration: none; }
-
-.home a {
-  background: #d9e8f7; }
 
 .page-link a:active, .page-link a:hover {
   color: #ff4b33; }
