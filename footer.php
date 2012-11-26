@@ -29,7 +29,7 @@
     ?>
 		</div><!-- #colophon -->
 			<div id="site-info">
-				<span>&copy; <?php the_time('Y'); ?></span>
+				<span>&copy; 2012-2013</span>
 				<a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 					<?php bloginfo( 'name' ); ?>
 				</a>
