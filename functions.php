@@ -2306,7 +2306,7 @@ $meta_boxes = array();
 $meta_boxes[] = array(
 	'id' => 'schedule',							// meta box id, unique per meta box
 	'title' => 'Fever Schedule',			// meta box title
-	'pages' => array('', '', 'schedule'),	// post types, accept custom post types as well, default is array('post'); optional
+	'pages' => array('schedule'),	// post types, accept custom post types as well, default is array('post'); optional
 	'context' => 'normal',						// where the meta box appear: normal (default), advanced, side; optional
 	'priority' => 'high',						// order of meta box: high (default), low; optional
 
@@ -2352,7 +2352,7 @@ $meta_boxes[] = array(
 $meta_boxes[] = array(
 	'id' => 'postgame',
 	'title' => 'Post Game',
-	'pages' => array('', '', 'schedule'),
+	'pages' => array('schedule'),
 
 	'fields' => array(
 		array(
@@ -2387,7 +2387,7 @@ $meta_boxes = array();
 $meta_boxes[] = array(
 	'id' => 'roster',							// meta box id, unique per meta box
 	'title' => 'Fever Roster',			// meta box title
-	'pages' => array('', '', 'roster'),	// post types, accept custom post types as well, default is array('post'); optional
+	'pages' => array('roster'),	// post types, accept custom post types as well, default is array('post'); optional
 	'context' => 'normal',						// where the meta box appear: normal (default), advanced, side; optional
 	'priority' => 'high',						// order of meta box: high (default), low; optional
 
