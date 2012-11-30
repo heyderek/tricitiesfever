@@ -72,9 +72,7 @@
 	 
 	wp_head();
 ?>
-<script type="application/x-javascript" src="<?php echo home_url( '/' ); ?>wp-content/themes/fever/js/jquery.flexslider.js"></script>
-
-    
+    <script type="application/x-javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.flexslider.js"></script>
     <script type="text/javascript">
 					
 	var $j = jQuery.noConflict();
